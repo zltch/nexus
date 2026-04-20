@@ -10,6 +10,11 @@ app:
     - page:catalog:
         config:
           path: /
+    - entity-content:kubernetes/kubernetes:
+        config:
+          filter:
+            metadata.annotations.backstage.io/kubernetes-id:
+              $exists: true
 
 organization:
   name: zltch

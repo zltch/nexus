@@ -1,5 +1,6 @@
 import { createApp } from '@backstage/frontend-defaults';
 import catalogPlugin from '@backstage/plugin-catalog/alpha';
+import kubernetesPlugin from '@backstage/plugin-kubernetes/alpha';
 import { navModule } from './modules/nav';
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInPageBlueprint } from '@backstage/plugin-app-react';
@@ -27,6 +28,7 @@ export default createApp({
   features: [
     catalogPlugin,
     navModule,
+    kubernetesPlugin,
     createFrontendModule({
       pluginId: 'app',
       extensions: [signInPage],
