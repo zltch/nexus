@@ -24,11 +24,24 @@ const signInPage = SignInPageBlueprint.make({
   },
 });
 
+const kubernetes = kubernetesPlugin.withOverrides({
+  extensions: [
+    kubernetesPlugin.getExtension('page:kubernetes').override({
+      params: {
+        loader: () =>
+          import('./components/kubernetes/KubernetesHubPage').then(m => (
+            <m.KubernetesHubPage />
+          )),
+      },
+    }),
+  ],
+});
+
 export default createApp({
   features: [
     catalogPlugin,
     navModule,
-    kubernetesPlugin,
+    kubernetes,
     createFrontendModule({
       pluginId: 'app',
       extensions: [signInPage],

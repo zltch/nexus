@@ -29,7 +29,7 @@
     "@backstage/plugin-catalog-backend-module-scaffolder-entity-model": "^0.2.18",
     "@backstage/plugin-events-backend": "^0.6.0",
     "@backstage/plugin-events-backend-module-github": "^0.4.10",
-    "@backstage/plugin-kubernetes-backend": "^0.21.2",
+    "@backstage/plugin-kubernetes-backend": "^0.21.3",
     "@backstage/plugin-notifications-backend": "^0.6.3",
     "@backstage/plugin-permission-backend": "^0.7.10",
     "@backstage/plugin-permission-backend-module-allow-all-policy": "^0.2.17",

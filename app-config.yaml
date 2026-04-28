@@ -9,12 +9,10 @@ app:
     # Configure the catalog index page to be the root page, this is normally mounted on /catalog
     - page:catalog:
         config:
-          path: /
+          path: /catalog
     - entity-content:kubernetes/kubernetes:
         config:
-          filter:
-            metadata.annotations.backstage.io/kubernetes-id:
-              $exists: true
+          path: /kubernetes
 
 organization:
   name: zltch
@@ -133,15 +131,11 @@ kubernetes:
   clusterLocatorMethods:
     - type: 'config'
       clusters:
-        - url: http://127.0.0.1:49911
+        - url: https://${MINIKUBE_IP}:${MINIKUBE_PORT}
           name: minikube
           authProvider: 'serviceAccount'
-          skipTLSVerify: false
-          skipMetricsLookup: true
+          skipTLSVerify: true
           serviceAccountToken: ${K8S_MINIKUBE_TOKEN}
-          dashboardUrl: http://127.0.0.1:64713 # url copied from running the command: minikube service kubernetes-dashboard -n kubernetes-dashboard
-          dashboardApp: standard
-          caData: ${K8S_CONFIG_CA_DATA}
   # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
 
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework
